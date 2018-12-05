@@ -9,15 +9,15 @@ import java.net.URI;
 
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/api/";
+    public static final String BASE_URI = "http://localhost:8080/";
 
     /**
      * Starts Grizzly HTTP server, exposing JAX-RS resources defined in this application.
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
-        final ResourceConfig rc = new ResourceConfig().packages("org.lukebillington.university.sharesbroker");
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+        final ResourceConfig config = new AppConfig();
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), config);
     }
 
     /**
