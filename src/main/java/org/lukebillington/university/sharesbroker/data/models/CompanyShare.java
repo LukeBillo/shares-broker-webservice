@@ -2,16 +2,19 @@ package org.lukebillington.university.sharesbroker.data.models;
 
 import org.bson.Document;
 
-import java.util.ArrayList;
-
 public class CompanyShare {
     private String _companyName;
     private String _companySymbol;
     private int _numberOfShares;
-    private ArrayList<Share> _shares;
+    private SharePrice _sharePrice;
 
     public CompanyShare(Document companyShare) {
+        _companyName = companyShare.getString("CompanyName");
+        _companySymbol = companyShare.getString("CompanySymbol");
+        _numberOfShares = companyShare.getInteger("NumberOfShares");
 
+        Document sharePrice = (Document) companyShare.get("SharePrice");
+        _sharePrice = new SharePrice(sharePrice);
     }
 
     public String getCompanyName() {
@@ -38,11 +41,9 @@ public class CompanyShare {
         this._numberOfShares = _numberOfShares;
     }
 
-    public ArrayList<Share> getShares() {
-        return _shares;
+    public SharePrice getSharePrice() {
+        return _sharePrice;
     }
 
-    public void setShares(ArrayList<Share> _shares) {
-        this._shares = _shares;
-    }
+    public void setSharePrice(SharePrice sharePrice) { this._sharePrice = sharePrice; }
 }

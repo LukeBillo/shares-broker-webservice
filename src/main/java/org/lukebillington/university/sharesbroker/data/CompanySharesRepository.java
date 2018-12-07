@@ -4,9 +4,9 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,31 +21,63 @@ public class CompanySharesRepository implements ICompanySharesRepository {
     }
 
     /**
+     * Internal helper for getting shares database and collection.
+     * @return Shares collection in MongoDb, located in the Shares database.
+     */
+    private MongoCollection<Document> getSharesCollection() {
+        return _mongoClient.getDatabase("Shares")
+                           .getCollection("Shares");
+    }
+
+    private ArrayList<CompanyShare> toCompanySharesArrayList(FindIterable<Document> documentsIterable) {
+        ArrayList<CompanyShare> companyShares = new ArrayList<>();
+        for (Document document : documentsIterable) {
+            companyShares.add(new CompanyShare(document));
+        }
+
+        return companyShares;
+    }
+
+    /**
      * Takes no parameters.
-     * Default message for retrieving shares
-     * with no data query, this will return the top 10 shares.
-     * @return List containing top 10 company shares.
+     * Default method for retrieving shares.
+     * Since this has no query, this will return the top 10 shares.
+     * @return List containing top 10 company shares with the most shares available.
      */
     @Override
     public List<CompanyShare> getShares() {
-        MongoCollection<Document> sharesDatabase = _mongoClient.getDatabase("Shares")
-                                                            .getCollection("Shares");
-
-        FindIterable<Document> top10Shares = sharesDatabase.find()
+        FindIterable<Document> top10Shares = getSharesCollection().find()
                 .sort(descending("NumberOfShares"))
                 .limit(10);
 
-        ArrayList<CompanyShare> top10SharesList = new ArrayList<>();
-        for (Document document : top10Shares) {
-            top10SharesList.add(new CompanyShare(document));
-        }
-
-        return top10SharesList;
+        return toCompanySharesArrayList(top10Shares);
     }
 
+    /**
+     * Method for getting shares which includes a query.
+     * @param companyShareCriteria - A query for MongoDb which filters the returned shares.
+     * @return Returns a list of the CompanyShares which match the query.
+     */
     @Override
-    public CompanyShare getShares(String query) {
-        return null;
+    public List<CompanyShare> getShares(Bson companyShareCriteria) {
+        FindIterable<Document> sharesMatchingQuery = getSharesCollection().find(companyShareCriteria);
+        return toCompanySharesArrayList(sharesMatchingQuery);
+    }
+
+    /**
+     * Method for getting one share that matches a query.
+     * @param query - a query for MongoDb used as a filter.
+     * @return Returns the first CompanyShare that matches the query.
+     */
+    @Override
+    public CompanyShare getShare(Bson query) {
+        Document firstMatchingCompanyShare = getSharesCollection().find(query).first();
+
+        if (firstMatchingCompanyShare == null) {
+            return null;
+        }
+
+        return new CompanyShare(firstMatchingCompanyShare);
     }
 
 }

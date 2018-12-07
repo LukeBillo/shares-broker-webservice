@@ -4,7 +4,7 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 
 public class MongoConnectionManager {
-    private static final MongoClientURI AtlasConnectionString = new MongoClientURI("mongodb://SharesAdmin:VP1duQrkCX3Tyd2D@shares-mongodb-shard-00-00-b1dc9.azure.mongodb.net:27017,shares-mongodb-shard-00-01-b1dc9.azure.mongodb.net:27017,shares-mongodb-shard-00-02-b1dc9.azure.mongodb.net:27017/test?ssl=true&replicaSet=shares-mongodb-shard-0&authSource=admin&retryWrites=true");
+    private static final MongoClientURI AtlasConnectionString = new MongoClientURI("mongodb://DbAdmin:VP1duQrkCX3Tyd2D@127.0.0.1:27017");
     private static MongoClient _mongoClient;
 
     private MongoConnectionManager() {

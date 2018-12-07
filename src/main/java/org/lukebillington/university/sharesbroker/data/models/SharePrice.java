@@ -1,11 +1,19 @@
 package org.lukebillington.university.sharesbroker.data.models;
 
+import org.bson.Document;
+
 import java.util.Date;
 
-public class Share {
+public class SharePrice {
     private String _currency;
-    private float _value;
+    private double _value;
     private Date _lastUpdated;
+
+    public SharePrice(Document sharePrice) {
+        _currency = sharePrice.getString("Currency");
+        _value = sharePrice.getDouble("Value");
+        _lastUpdated = sharePrice.getDate("LastUpdated");
+    }
 
     public String getCurrency() {
         return _currency;
@@ -15,11 +23,11 @@ public class Share {
         this._currency = _currency;
     }
 
-    public float getValue() {
+    public double getValue() {
         return _value;
     }
 
-    public void setValue(float _value) {
+    public void setValue(double _value) {
         this._value = _value;
     }
 
