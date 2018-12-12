@@ -8,6 +8,7 @@ import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.lukebillington.university.sharesbroker.data.models.User;
 import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
+import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelpers;
 
 
 public class UsersRepository implements IUsersRepository {
@@ -24,7 +25,7 @@ public class UsersRepository implements IUsersRepository {
 
     @Override
     public User getUser(String username) {
-        Document foundUser = getUsersCollection().find(Filters.eq("Username", username)).first();
+        Document foundUser = getUsersCollection().find(Filters.eq("username", username)).first();
 
         if (foundUser == null) {
             return null;
@@ -34,11 +35,8 @@ public class UsersRepository implements IUsersRepository {
     }
 
     @Override
-    public void updateUser(User user) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
-        String userJson = mapper.writeValueAsString(user);
-
-        Document userDocument = Document.parse(userJson);
+    public void updateUser(User user) {
+        Document userDocument = ObjectMapperHelpers.MapToDocument(user);
 
         getUsersCollection().replaceOne(
                 Filters.eq("Username", user.getUsername()),

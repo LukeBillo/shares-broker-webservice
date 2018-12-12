@@ -10,9 +10,11 @@ public class SharePrice {
     private Date _lastUpdated;
 
     public SharePrice(Document sharePrice) {
-        _currency = sharePrice.getString("Currency");
-        _value = sharePrice.getDouble("Value");
-        _lastUpdated = sharePrice.getDate("LastUpdated");
+        _currency = sharePrice.getString("currency");
+        _value = sharePrice.getDouble("value");
+
+        // todo: try using instant, date gets serialized to a ulong
+        _lastUpdated = sharePrice.getDate("lastUpdated");
     }
 
     public String getCurrency() {

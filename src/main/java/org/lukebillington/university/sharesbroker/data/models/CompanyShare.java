@@ -9,11 +9,11 @@ public class CompanyShare {
     private SharePrice _sharePrice;
 
     public CompanyShare(Document companyShare) {
-        _companyName = companyShare.getString("CompanyName");
-        _companySymbol = companyShare.getString("CompanySymbol");
-        _numberOfShares = companyShare.getInteger("NumberOfShares");
+        _companyName = companyShare.getString("companyName");
+        _companySymbol = companyShare.getString("companySymbol");
+        _numberOfShares = companyShare.getInteger("numberOfShares");
 
-        Document sharePrice = (Document) companyShare.get("SharePrice");
+        Document sharePrice = (Document) companyShare.get("sharePrice");
         _sharePrice = new SharePrice(sharePrice);
     }
 

@@ -1,12 +1,16 @@
 package org.lukebillington.university.sharesbroker.data;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
+import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelpers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +51,7 @@ public class CompanySharesRepository implements ICompanySharesRepository {
     @Override
     public List<CompanyShare> getShares() {
         FindIterable<Document> top10Shares = getSharesCollection().find()
-                .sort(descending("NumberOfShares"))
+                .sort(descending("numberOfShares"))
                 .limit(10);
 
         return toCompanySharesArrayList(top10Shares);
@@ -78,6 +82,16 @@ public class CompanySharesRepository implements ICompanySharesRepository {
         }
 
         return new CompanyShare(firstMatchingCompanyShare);
+    }
+
+    @Override
+    public void updateShare(CompanyShare companyShare) {
+        Document updatedShare = ObjectMapperHelpers.MapToDocument(companyShare);
+
+        getSharesCollection().replaceOne(
+                Filters.eq("companySymbol", companyShare.getCompanySymbol()),
+                updatedShare
+        );
     }
 
 }

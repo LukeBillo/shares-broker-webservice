@@ -7,17 +7,17 @@ import java.util.List;
 
 public class User {
     private String _username;
-    private List<CompanyShare> _ownedShares;
+    private List<UserShare> _ownedShares;
     private boolean _isAdmin;
 
     public User(Document user) {
-        _username = user.getString("Username");
-        _isAdmin = user.getBoolean("IsAdmin");
+        _username = user.getString("username");
+        _isAdmin = user.getBoolean("admin");
 
-        ArrayList<Document> ownedShares = (ArrayList<Document>) user.get("OwnedShares");
+        ArrayList<Document> ownedShares = (ArrayList<Document>) user.get("ownedShares");
         _ownedShares = new ArrayList<>();
         for (Document share : ownedShares) {
-            _ownedShares.add(new CompanyShare(share));
+            _ownedShares.add(new UserShare(share));
         }
     }
 
@@ -29,11 +29,11 @@ public class User {
         this._username = _username;
     }
 
-    public List<CompanyShare> getOwnedShares() {
+    public List<UserShare> getOwnedShares() {
         return _ownedShares;
     }
 
-    public void setOwnedShares(List<CompanyShare> _ownedShares) {
+    public void setOwnedShares(List<UserShare> _ownedShares) {
         this._ownedShares = _ownedShares;
     }
 

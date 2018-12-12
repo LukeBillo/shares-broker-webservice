@@ -5,5 +5,5 @@ import org.lukebillington.university.sharesbroker.data.models.User;
 
 public interface IUsersRepository {
     User getUser(String username);
-    void updateUser(User user) throws JsonProcessingException;
+    void updateUser(User user);
 }

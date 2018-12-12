@@ -7,6 +7,7 @@ import org.lukebillington.university.sharesbroker.data.IUsersRepository;
 import org.lukebillington.university.sharesbroker.data.models.BuyShareRequest;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.models.User;
+import org.lukebillington.university.sharesbroker.data.models.UserShare;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
 import javax.inject.Inject;
@@ -42,12 +43,12 @@ public class SharesController {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response buyShare(BuyShareRequest buyShareRequest) {
-        CompanyShare buyShare = companySharesRepository.getShare(Filters.and(
-                Filters.eq("CompanySymbol", buyShareRequest.getCompanySymbol()),
-                Filters.gte("NumberOfShares", buyShareRequest.getNumberOfSharesToBuy())
+        CompanyShare buyingShare = companySharesRepository.getShare(Filters.and(
+                Filters.eq("companySymbol", buyShareRequest.getCompanySymbol()),
+                Filters.gte("numberOfShares", buyShareRequest.getNumberOfSharesToBuy())
         ));
 
-        if (buyShare == null) {
+        if (buyingShare == null) {
             return HttpResponseHelper.CreateBadRequest(Errors.SHARES_NOT_FOUND_OR_INSUFFICIENT);
         }
 
@@ -57,13 +58,12 @@ public class SharesController {
             return HttpResponseHelper.CreateBadRequest(Errors.USER_NOT_FOUND);
         }
 
-        buyingUser.getOwnedShares().add(buyShare);
+        UserShare boughtShare = new UserShare(buyingShare);
+        buyingUser.getOwnedShares().add(boughtShare);
+        buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - 1);
 
-        try {
-            usersRepository.updateUser(buyingUser);
-        } catch (JsonProcessingException e) {
-            return Response.serverError().build();
-        }
+        usersRepository.updateUser(buyingUser);
+        companySharesRepository.updateShare(buyingShare);
 
         return Response.ok().build();
     }
