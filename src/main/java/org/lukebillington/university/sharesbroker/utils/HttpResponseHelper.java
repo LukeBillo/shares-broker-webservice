@@ -6,4 +6,8 @@ public abstract class HttpResponseHelper {
     public static Response CreateBadRequest(String message) {
         return Response.status(Response.Status.BAD_REQUEST.getStatusCode(), message).build();
     }
+
+    public static Response CreateConflictRequest(String message) {
+        return Response.status(Response.Status.CONFLICT.getStatusCode(), message).build();
+    }
 }

@@ -39,7 +39,7 @@ public class UsersRepository implements IUsersRepository {
         Document userDocument = ObjectMapperHelpers.MapToDocument(user);
 
         getUsersCollection().replaceOne(
-                Filters.eq("Username", user.getUsername()),
+                Filters.eq("username", user.getUsername()),
                 userDocument);
     }
 }

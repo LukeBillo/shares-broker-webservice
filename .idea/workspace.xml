@@ -3,14 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="6032ca63-d6ac-430e-bea9-512147a99bdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/ICompanySharesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/ICompanySharesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/IUsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/IUsersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/SharePrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/SharePrice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/HttpResponseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/HttpResponseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/lukebillington/university/sharesbroker/SharesControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/lukebillington/university/sharesbroker/SharesControllerTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,45 +27,46 @@
     <session id="1993499971">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.32" value="1" />
+          <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.39" value="1" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.42" value="2" />
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.50" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="27" />
+          <entry key="class" value="30" />
           <entry key="iml" value="3" />
-          <entry key="java" value="78" />
+          <entry key="java" value="113" />
           <entry key="md" value="1" />
-          <entry key="xml" value="3" />
+          <entry key="xml" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="27" />
+          <entry key="CLASS" value="30" />
           <entry key="IDEA_MODULE" value="3" />
-          <entry key="JAVA" value="78" />
+          <entry key="JAVA" value="113" />
           <entry key="Markdown" value="1" />
-          <entry key="XML" value="3" />
+          <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="11781" />
+          <entry key="java" value="16759" />
           <entry key="txt" value="82" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11781" />
+          <entry key="JAVA" value="16759" />
           <entry key="PLAIN_TEXT" value="82" />
           <entry key="XML" value="13" />
         </counts>
@@ -71,34 +76,38 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/mongo/MongoConnectionManager.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="101" selection-start-line="6" selection-start-column="101" selection-end-line="6" selection-end-column="101" />
+            <state relative-caret-position="297">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#841#842#0" expanded="true" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1051#1052#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="649">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/SharePrice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+            <state relative-caret-position="414">
+              <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,24 +116,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UpdateCompanyShareRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
+            <state relative-caret-position="198">
+              <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#223#224#0" expanded="true" />
+                <element signature="e#260#261#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+                <element signature="e#420#421#0" expanded="true" />
+                <element signature="e#451#452#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#552#553#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShareUpdates.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="878">
+              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#295#296#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#386#387#0" expanded="true" />
+                <element signature="e#434#435#0" expanded="true" />
+                <element signature="e#475#476#0" expanded="true" />
+                <element signature="e#512#513#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#624#625#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#701#702#0" expanded="true" />
+                <element signature="e#760#761#0" expanded="true" />
+                <element signature="e#814#815#0" expanded="true" />
+                <element signature="e#850#851#0" expanded="true" />
+                <element signature="e#882#883#0" expanded="true" />
+                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#974#975#0" expanded="true" />
+                <element signature="e#1007#1008#0" expanded="true" />
+                <element signature="e#1036#1037#0" expanded="true" />
+                <element signature="e#1080#1081#0" expanded="true" />
+                <element signature="e#1116#1117#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,8 +167,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
+            <state relative-caret-position="54">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#1253#1254#0" expanded="true" />
+                <element signature="e#1290#1291#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,23 +201,26 @@
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/SharesRepository.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/org/lukebillington/university/sharesbroker/SharesControllerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/mongo/MongoConnectionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/Share.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/BuyShareRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/IUsersRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/ObjectMapperHelpers.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/ICompanySharesRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/HttpResponseHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/AppConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/IUsersRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/ICompanySharesRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/ObjectMapperHelpers.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CreateCompanyShareRequest.java" />
         <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/SharePrice.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UpdateCompanyShareRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShareUpdates.java" />
+        <option value="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java" />
       </list>
     </option>
   </component>
@@ -206,17 +247,17 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1098" />
+    <option name="x" value="-1928" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -285,16 +326,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sharesbroker" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="mongo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shares-broker-webservice" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shares-broker-webservice" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sharesbroker" type="462c0819:PsiDirectoryNode" />
               <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -322,15 +353,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="mai&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/Main.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544568420024" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544632301485" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -519,11 +550,12 @@
       <workItem from="1543939229317" duration="4808000" />
       <workItem from="1544178080097" duration="18823000" />
       <workItem from="1544544382203" duration="3094000" />
+      <workItem from="1544613120281" duration="14035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49380000" />
+    <option name="totallyTimeSpent" value="63415000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -535,9 +567,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="-1928" y="-8" width="1936" height="1096" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2181208" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -545,9 +577,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3261745" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3986577" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3981289" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32885906" />
@@ -556,7 +588,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" sideWeight="0.49932885" weight="0.32885906" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3261745" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3253638" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -570,7 +602,7 @@
       <window_info anchor="right" id="CDI" order="10" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2181208" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -578,9 +610,9 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3261745" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991684" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32952183" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3261745" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3981289" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32885906" />
@@ -589,7 +621,7 @@
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49932885" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067115" side_tool="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" sideWeight="0.49932885" weight="0.32885906" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3261745" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3253638" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -608,36 +640,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java</url>
-          <line>33</line>
-          <properties />
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java</url>
-          <line>90</line>
-          <properties />
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java</url>
-          <line>45</line>
-          <properties />
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -678,13 +680,6 @@
     <entry file="file://$PROJECT_DIR$/shares-broker-webservice.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="21" lean-forward="true" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/mongodb/bson/3.4.3/bson-3.4.3.jar!/org/bson/codecs/configuration/ChildCodecRegistry.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -703,13 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="118" selection-start-line="118" selection-end-line="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/lukebillington/university/sharesbroker/SharesControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -741,25 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/HttpResponseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="81" selection-start-line="6" selection-start-column="81" selection-end-line="6" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#770#771#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.27/jersey-server-2.27.jar!/org/glassfish/jersey/server/model/internal/ResourceMethodInvocationHandlerFactory.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="445">
@@ -771,46 +740,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
           <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/mongo/MongoConnectionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="101" selection-start-line="6" selection-start-column="101" selection-end-line="6" selection-end-column="101" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/ICompanySharesRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -834,38 +763,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/BuyShareRequest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/mongo/MongoConnectionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="90">
+          <caret line="6" column="101" selection-start-line="6" selection-start-column="101" selection-end-line="6" selection-end-column="101" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="558">
+          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/lukebillington/university/sharesbroker/SharesControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/ICompanySharesRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/HttpResponseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="90" selection-start-line="10" selection-start-column="90" selection-end-line="10" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#874#1143#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -876,37 +823,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.27/jersey-server-2.27.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="258">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/time/Instant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-472">
+          <caret line="213" column="7" lean-forward="true" selection-start-line="213" selection-start-column="7" selection-end-line="213" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="37" lean-forward="true" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CreateCompanyShareRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="771">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#841#842#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/BuyShareRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+          <folding>
+            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="83" column="59" selection-start-line="83" selection-start-column="59" selection-end-line="83" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/glassfish/jersey/core/jersey-server/2.27/jersey-server-2.27.jar!/org/glassfish/jersey/server/model/internal/AbstractJavaResourceMethodDispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="47" column="28" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="28" />
+        <state relative-caret-position="303">
+          <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -915,8 +918,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/SharePrice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
+        <state relative-caret-position="414">
+          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#1253#1254#0" expanded="true" />
+            <element signature="e#1290#1291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShareUpdates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="878">
+          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#624#625#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#760#761#0" expanded="true" />
+            <element signature="e#814#815#0" expanded="true" />
+            <element signature="e#850#851#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#974#975#0" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
+            <element signature="e#1036#1037#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UpdateCompanyShareRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="57" lean-forward="true" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="57" />
+          <folding>
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#451#452#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

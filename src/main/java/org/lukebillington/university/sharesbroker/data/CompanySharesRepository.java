@@ -1,7 +1,5 @@
 package org.lukebillington.university.sharesbroker.data;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
@@ -92,6 +90,28 @@ public class CompanySharesRepository implements ICompanySharesRepository {
                 Filters.eq("companySymbol", companyShare.getCompanySymbol()),
                 updatedShare
         );
+    }
+
+    /**
+     * A method for inserting a new share. If a share with the same company symbol
+     * already exists, the insertion will not be executed.
+     * @param companyShare The new share being inserted.
+     * @return A boolean representing whether the insert was successful.
+     */
+    @Override
+    public boolean insertShare(CompanyShare companyShare) {
+        CompanyShare existingShare = getShare(
+                Filters.eq("companySymbol", companyShare.getCompanySymbol())
+        );
+
+        if (existingShare != null) {
+            return false;
+        }
+
+        Document newShare = ObjectMapperHelpers.MapToDocument(companyShare);
+        getSharesCollection().insertOne(newShare);
+
+        return true;
     }
 
 }

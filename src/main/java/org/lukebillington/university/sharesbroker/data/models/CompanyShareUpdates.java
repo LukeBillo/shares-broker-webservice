@@ -1,23 +1,11 @@
 package org.lukebillington.university.sharesbroker.data.models;
 
-import org.bson.Document;
-
-public class UserShare {
+public class CompanyShareUpdates {
     private String _companyName;
     private String _companySymbol;
     private int _numberOfShares;
-
-    public UserShare(CompanyShare boughtCompanyShare, int numberOfBoughtShares) {
-        _companyName = boughtCompanyShare.getCompanyName();
-        _companySymbol = boughtCompanyShare.getCompanySymbol();
-        _numberOfShares = numberOfBoughtShares;
-    }
-
-    public UserShare (Document share) {
-        _companyName = share.getString("companyName");
-        _companySymbol = share.getString("companySymbol");
-        _numberOfShares = share.getInteger("numberOfShares");
-    }
+    private String _currency;
+    private double _price;
 
     public String getCompanyName() {
         return _companyName;
@@ -42,4 +30,22 @@ public class UserShare {
     public void setNumberOfShares(int _numberOfShares) {
         this._numberOfShares = _numberOfShares;
     }
+
+    public String getCurrency() {
+        return _currency;
+    }
+
+    public void setCurrency(String _currency) {
+        this._currency = _currency;
+    }
+
+    public double getPrice() {
+        return _price;
+    }
+
+    public void setPrice(double _price) {
+        this._price = _price;
+    }
+
+
 }

@@ -17,10 +17,12 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- * Shares controller - allows access and management of shares
+ * Shares controller - allows any user to get and buy
+ * existing shares.
  */
-@Path("shares")
+@Path(SharesController.Path)
 @Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public class SharesController {
     @Inject
     ICompanySharesRepository companySharesRepository;
@@ -28,20 +30,20 @@ public class SharesController {
     @Inject
     IUsersRepository usersRepository;
 
+    public static final String Path = "shares";
+
     private static class Errors {
         static final String SHARES_NOT_FOUND_OR_INSUFFICIENT = "The shares requested to buy were not found or had an insufficient number of shares available.";
         static final String USER_NOT_FOUND = "The user requesting to buy the shares was not found.";
     }
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
     public Response getTop10Shares() {
         List<CompanyShare> sharesToReturn = companySharesRepository.getShares();
         return Response.ok(sharesToReturn).build();
     }
 
     @POST
-    @Produces(MediaType.APPLICATION_JSON)
     public Response buyShare(BuyShareRequest buyShareRequest) {
         CompanyShare buyingShare = companySharesRepository.getShare(Filters.and(
                 Filters.eq("companySymbol", buyShareRequest.getCompanySymbol()),
@@ -58,11 +60,24 @@ public class SharesController {
             return HttpResponseHelper.CreateBadRequest(Errors.USER_NOT_FOUND);
         }
 
-        UserShare boughtShare = new UserShare(buyingShare);
-        buyingUser.getOwnedShares().add(boughtShare);
-        buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - 1);
+        UserShare existingUserShare = buyingUser.getUserShareIfExists(buyingShare.getCompanySymbol());
+
+        if (existingUserShare != null) {
+            int updatedNumberOfShares = existingUserShare.getNumberOfShares() + buyShareRequest.getNumberOfSharesToBuy();
+            existingUserShare.setNumberOfShares(updatedNumberOfShares);
+
+            usersRepository.updateUser(buyingUser);
+            buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - buyShareRequest.getNumberOfSharesToBuy());
+            companySharesRepository.updateShare(buyingShare);
+
+            return Response.ok().build();
+        }
+
+        UserShare newUserShare = new UserShare(buyingShare, buyShareRequest.getNumberOfSharesToBuy());
+        buyingUser.getOwnedShares().add(newUserShare);
 
         usersRepository.updateUser(buyingUser);
+        buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - buyShareRequest.getNumberOfSharesToBuy());
         companySharesRepository.updateShare(buyingShare);
 
         return Response.ok().build();

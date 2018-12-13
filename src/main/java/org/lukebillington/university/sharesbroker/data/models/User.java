@@ -44,4 +44,14 @@ public class User {
     public void setIsAdmin(boolean _isAdmin) {
         this._isAdmin = _isAdmin;
     }
+
+    public UserShare getUserShareIfExists(String companySymbol) {
+        for (UserShare share : _ownedShares) {
+            if (share.getCompanySymbol().equals(companySymbol)) {
+                return share;
+            }
+        }
+
+        return null;
+    }
 }

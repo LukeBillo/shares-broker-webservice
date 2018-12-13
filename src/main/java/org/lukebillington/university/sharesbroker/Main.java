@@ -9,7 +9,7 @@ import java.net.URI;
 
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/";
+    public static final String BaseUri = "http://localhost:8080/";
 
     /**
      * Starts Grizzly HTTP server, exposing JAX-RS resources defined in this application.
@@ -17,7 +17,7 @@ public class Main {
      */
     public static HttpServer startServer() {
         final ResourceConfig config = new AppConfig();
-        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), config);
+        return GrizzlyHttpServerFactory.createHttpServer(URI.create(BaseUri), config);
     }
 
     /**
@@ -27,7 +27,7 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
         final HttpServer server = startServer();
-        System.out.println(String.format("Jersey app started at %s", BASE_URI));
+        System.out.println(String.format("Jersey app started at %s", BaseUri));
         System.out.println("Press any key to stop server.");
         System.in.read();
         server.shutdownNow();

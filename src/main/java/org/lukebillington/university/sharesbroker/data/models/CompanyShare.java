@@ -17,6 +17,13 @@ public class CompanyShare {
         _sharePrice = new SharePrice(sharePrice);
     }
 
+    public CompanyShare(CreateCompanyShareRequest newCompanyShareRequest) {
+        _companyName = newCompanyShareRequest.getCompanyName();
+        _companySymbol = newCompanyShareRequest.getCompanySymbol();
+        _numberOfShares = newCompanyShareRequest.getNumberOfAvailableShares();
+        _sharePrice = new SharePrice(newCompanyShareRequest.getCurrency(), newCompanyShareRequest.getPrice());
+    }
+
     public String getCompanyName() {
         return _companyName;
     }
