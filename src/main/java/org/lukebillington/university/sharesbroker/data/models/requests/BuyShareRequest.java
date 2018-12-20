@@ -1,4 +1,4 @@
-package org.lukebillington.university.sharesbroker.data.models;
+package org.lukebillington.university.sharesbroker.data.models.requests;
 
 public class BuyShareRequest {
     private String _buyerUsername;

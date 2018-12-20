@@ -1,11 +1,19 @@
-package org.lukebillington.university.sharesbroker.data.models;
+package org.lukebillington.university.sharesbroker.data.models.requests;
 
-public class CreateCompanyShareRequest {
+public class CompanyShareUpdates {
+    /**
+     * Non-primitive types have purposely been used to
+     * allow for nulls here.
+     * This way, in a PATCH request, nulls can be
+     * checked and updates will not be applied
+     * if the fields are null.
+     */
+
     private String _companyName;
     private String _companySymbol;
-    private int _numberOfAvailableShares;
+    private Integer _numberOfShares;
     private String _currency;
-    private double _price;
+    private Double _price;
 
     public String getCompanyName() {
         return _companyName;
@@ -23,12 +31,12 @@ public class CreateCompanyShareRequest {
         this._companySymbol = _companySymbol;
     }
 
-    public int getNumberOfAvailableShares() {
-        return _numberOfAvailableShares;
+    public Integer getNumberOfShares() {
+        return _numberOfShares;
     }
 
-    public void setNumberOfAvailableShares(int _numberOfAvailableShares) {
-        this._numberOfAvailableShares = _numberOfAvailableShares;
+    public void setNumberOfShares(Integer _numberOfShares) {
+        this._numberOfShares = _numberOfShares;
     }
 
     public String getCurrency() {
@@ -39,11 +47,11 @@ public class CreateCompanyShareRequest {
         this._currency = _currency;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return _price;
     }
 
-    public void setPrice(double _price) {
+    public void setPrice(Double _price) {
         this._price = _price;
     }
 }

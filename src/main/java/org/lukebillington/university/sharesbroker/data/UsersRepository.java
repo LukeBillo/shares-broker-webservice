@@ -42,4 +42,12 @@ public class UsersRepository implements IUsersRepository {
                 Filters.eq("username", user.getUsername()),
                 userDocument);
     }
+
+    @Override
+    public String getUserPasswordHash(String username) {
+        return getUsersCollection()
+                .find(Filters.eq("username", username))
+                .first()
+                .getString("password");
+    }
 }

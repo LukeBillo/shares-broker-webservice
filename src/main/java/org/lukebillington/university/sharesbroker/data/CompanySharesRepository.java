@@ -83,11 +83,11 @@ public class CompanySharesRepository implements ICompanySharesRepository {
     }
 
     @Override
-    public void updateShare(CompanyShare companyShare) {
+    public void updateShare(String companySymbol, CompanyShare companyShare) {
         Document updatedShare = ObjectMapperHelpers.MapToDocument(companyShare);
 
         getSharesCollection().replaceOne(
-                Filters.eq("companySymbol", companyShare.getCompanySymbol()),
+                Filters.eq("companySymbol", companySymbol),
                 updatedShare
         );
     }

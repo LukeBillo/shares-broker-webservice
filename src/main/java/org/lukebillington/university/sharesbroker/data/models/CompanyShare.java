@@ -1,6 +1,7 @@
 package org.lukebillington.university.sharesbroker.data.models;
 
 import org.bson.Document;
+import org.lukebillington.university.sharesbroker.data.models.requests.CreateCompanyShareRequest;
 
 public class CompanyShare {
     private String _companyName;

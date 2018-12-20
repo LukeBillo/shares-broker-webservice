@@ -1,9 +1,9 @@
-package org.lukebillington.university.sharesbroker.data.models;
+package org.lukebillington.university.sharesbroker.data.models.requests;
 
-public class CompanyShareUpdates {
+public class CreateCompanyShareRequest {
     private String _companyName;
     private String _companySymbol;
-    private int _numberOfShares;
+    private int _numberOfAvailableShares;
     private String _currency;
     private double _price;
 
@@ -23,12 +23,12 @@ public class CompanyShareUpdates {
         this._companySymbol = _companySymbol;
     }
 
-    public int getNumberOfShares() {
-        return _numberOfShares;
+    public int getNumberOfAvailableShares() {
+        return _numberOfAvailableShares;
     }
 
-    public void setNumberOfShares(int _numberOfShares) {
-        this._numberOfShares = _numberOfShares;
+    public void setNumberOfAvailableShares(int _numberOfAvailableShares) {
+        this._numberOfAvailableShares = _numberOfAvailableShares;
     }
 
     public String getCurrency() {
@@ -46,6 +46,4 @@ public class CompanyShareUpdates {
     public void setPrice(double _price) {
         this._price = _price;
     }
-
-
 }

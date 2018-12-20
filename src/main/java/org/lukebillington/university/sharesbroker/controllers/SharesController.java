@@ -1,10 +1,9 @@
 package org.lukebillington.university.sharesbroker.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.mongodb.client.model.Filters;
 import org.lukebillington.university.sharesbroker.data.ICompanySharesRepository;
 import org.lukebillington.university.sharesbroker.data.IUsersRepository;
-import org.lukebillington.university.sharesbroker.data.models.BuyShareRequest;
+import org.lukebillington.university.sharesbroker.data.models.requests.BuyShareRequest;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.models.User;
 import org.lukebillington.university.sharesbroker.data.models.UserShare;
@@ -51,13 +50,13 @@ public class SharesController {
         ));
 
         if (buyingShare == null) {
-            return HttpResponseHelper.CreateBadRequest(Errors.SHARES_NOT_FOUND_OR_INSUFFICIENT);
+            return HttpResponseHelper.CreateBadRequestResponse(Errors.SHARES_NOT_FOUND_OR_INSUFFICIENT);
         }
 
         User buyingUser = usersRepository.getUser(buyShareRequest.getBuyerUsername());
 
         if (buyingUser == null) {
-            return HttpResponseHelper.CreateBadRequest(Errors.USER_NOT_FOUND);
+            return HttpResponseHelper.CreateBadRequestResponse(Errors.USER_NOT_FOUND);
         }
 
         UserShare existingUserShare = buyingUser.getUserShareIfExists(buyingShare.getCompanySymbol());
@@ -68,7 +67,7 @@ public class SharesController {
 
             usersRepository.updateUser(buyingUser);
             buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - buyShareRequest.getNumberOfSharesToBuy());
-            companySharesRepository.updateShare(buyingShare);
+            companySharesRepository.updateShare(buyShareRequest.getCompanySymbol(), buyingShare);
 
             return Response.ok().build();
         }
@@ -78,7 +77,7 @@ public class SharesController {
 
         usersRepository.updateUser(buyingUser);
         buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - buyShareRequest.getNumberOfSharesToBuy());
-        companySharesRepository.updateShare(buyingShare);
+        companySharesRepository.updateShare(buyShareRequest.getCompanySymbol(), buyingShare);
 
         return Response.ok().build();
     }

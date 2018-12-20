@@ -13,7 +13,6 @@ public class SharePrice {
         _currency = sharePrice.getString("currency");
         _value = sharePrice.getDouble("value");
 
-        // todo: try using instant, date gets serialized to a ulong
         Document lastUpdated = (Document) sharePrice.get("lastUpdated");
         int epochSeconds = lastUpdated.getInteger("epochSecond");
         int nanos = lastUpdated.getInteger("nano");

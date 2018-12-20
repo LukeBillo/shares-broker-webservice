@@ -4,9 +4,9 @@ import com.mongodb.client.model.Filters;
 import org.lukebillington.university.sharesbroker.Main;
 import org.lukebillington.university.sharesbroker.data.ICompanySharesRepository;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
-import org.lukebillington.university.sharesbroker.data.models.CompanyShareUpdates;
-import org.lukebillington.university.sharesbroker.data.models.CreateCompanyShareRequest;
-import org.lukebillington.university.sharesbroker.data.models.UpdateCompanyShareRequest;
+import org.lukebillington.university.sharesbroker.data.models.requests.CompanyShareUpdates;
+import org.lukebillington.university.sharesbroker.data.models.requests.CreateCompanyShareRequest;
+import org.lukebillington.university.sharesbroker.data.models.requests.UpdateCompanyShareRequest;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
 import javax.inject.Inject;
@@ -15,6 +15,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import java.net.URI;
+import java.time.Instant;
 
 /**
  * Shares admin controller - for usage only by admin users.
@@ -42,9 +43,38 @@ public class SharesAdminController {
 
         String updatedCurrency = updates.getCurrency();
         if (updatedCurrency != null) {
-            shareToUpdate.getSharePrice().setCurrency(updates.getCurrency());
+            shareToUpdate.getSharePrice().setCurrency(updatedCurrency);
+            shareToUpdate.getSharePrice().setLastUpdated(Instant.now());
         }
 
+        Double updatedPrice = updates.getPrice();
+        if (updatedPrice != null) {
+            shareToUpdate.getSharePrice().setValue(updatedPrice);
+            shareToUpdate.getSharePrice().setLastUpdated(Instant.now());
+        }
+
+        Integer updatedShares = updates.getNumberOfShares();
+        if (updatedShares != null)  {
+            shareToUpdate.setNumberOfShares(updatedShares);
+        }
+
+        String updatedCompanyName = updates.getCompanyName();
+        if (updatedCompanyName != null) {
+            shareToUpdate.setCompanyName(updatedCompanyName);
+        }
+
+        String updatedCompanySymbol = updates.getCompanySymbol();
+        if (updatedCompanySymbol != null) {
+            // need to check that the updated company symbol does not already exist
+            CompanyShare existingCompanyWithSymbol = companySharesRepository.getShare(Filters.eq("companySymbol", updatedCompanySymbol));
+            if (existingCompanyWithSymbol != null) {
+                return HttpResponseHelper.CreateBadRequestResponse(Errors.COMPANY_SYMBOL_EXISTS);
+            }
+
+            shareToUpdate.setCompanySymbol(updatedCompanySymbol);
+        }
+
+        companySharesRepository.updateShare(updateShareRequest.getCompanySymbol(), shareToUpdate);
 
         return Response.ok().build();
     }
@@ -55,7 +85,7 @@ public class SharesAdminController {
         boolean shareWasCreated = companySharesRepository.insertShare(newShare);
 
         if (!shareWasCreated) {
-            return HttpResponseHelper.CreateConflictRequest(Errors.COMPANY_SYMBOL_EXISTS);
+            return HttpResponseHelper.CreateConflictResponse(Errors.COMPANY_SYMBOL_EXISTS);
         }
 
         URI createdShareResourceLocation = UriBuilder.fromPath(Main.BaseUri + SharesController.Path).build();
