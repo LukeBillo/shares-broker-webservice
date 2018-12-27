@@ -14,4 +14,8 @@ public abstract class HttpResponseHelper {
     public static Response CreateForbiddenResponse(String message) {
         return Response.status(Response.Status.FORBIDDEN.getStatusCode(), message).build();
     }
+
+    public static Response CreateUnauthorizedResponse(String message) {
+        return Response.status(Response.Status.UNAUTHORIZED.getStatusCode(), message).build();
+    }
 }

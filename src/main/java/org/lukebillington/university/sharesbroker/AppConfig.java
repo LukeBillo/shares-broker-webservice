@@ -8,12 +8,17 @@ import org.lukebillington.university.sharesbroker.data.CompanySharesRepository;
 import org.lukebillington.university.sharesbroker.data.ICompanySharesRepository;
 import org.lukebillington.university.sharesbroker.data.IUsersRepository;
 import org.lukebillington.university.sharesbroker.data.UsersRepository;
+import org.lukebillington.university.sharesbroker.security.AuthenticationFilter;
 
 import javax.ws.rs.ApplicationPath;
 
 @ApplicationPath("/")
 public class AppConfig extends ResourceConfig {
     public AppConfig() {
+        // Security
+        register(AuthenticationFilter.class);
+
+        // DI
         register(SharesController.class);
         register(SharesAdminController.class);
 

@@ -44,6 +44,14 @@ public class UsersRepository implements IUsersRepository {
     }
 
     @Override
+    public void setUserPasswordHash(String username, String newHashedPassword) {
+        getUsersCollection().updateOne(
+                Filters.eq("username", username),
+                new Document("$set", new Document("password", newHashedPassword))
+        );
+    }
+
+    @Override
     public String getUserPasswordHash(String username) {
         return getUsersCollection()
                 .find(Filters.eq("username", username))
