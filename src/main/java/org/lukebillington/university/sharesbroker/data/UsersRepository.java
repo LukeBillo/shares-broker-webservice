@@ -4,11 +4,14 @@ import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
+import org.jvnet.hk2.annotations.Service;
 import org.lukebillington.university.sharesbroker.data.models.User;
-import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
+import org.lukebillington.university.sharesbroker.data.mongo.IMongoConnectionManager;
 import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelper;
 
+import javax.inject.Inject;
 
+@Service
 public class UsersRepository implements IUsersRepository {
     private MongoClient _mongoClient;
 
@@ -17,8 +20,9 @@ public class UsersRepository implements IUsersRepository {
                 .getCollection("Users");
     }
 
-    public UsersRepository() {
-        _mongoClient = MongoConnectionManager.Instance().getClient();
+    @Inject
+    public UsersRepository(IMongoConnectionManager mongoConnectionManager) {
+        _mongoClient = mongoConnectionManager.getClient();
     }
 
     @Override

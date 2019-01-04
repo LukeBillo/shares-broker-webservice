@@ -6,20 +6,24 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.jvnet.hk2.annotations.Service;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
-import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
+import org.lukebillington.university.sharesbroker.data.mongo.IMongoConnectionManager;
 import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelper;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.mongodb.client.model.Sorts.descending;
 
+@Service
 public class CompanySharesRepository implements ICompanySharesRepository {
     private MongoClient _mongoClient;
 
-    public CompanySharesRepository() {
-        _mongoClient = MongoConnectionManager.Instance().getClient();
+    @Inject
+    public CompanySharesRepository(IMongoConnectionManager mongoConnectionManager) {
+        _mongoClient = mongoConnectionManager.getClient();
     }
 
     /**
