@@ -8,7 +8,7 @@ import org.glassfish.grizzly.http.server.HttpServer;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 public class SharesControllerTest {
@@ -29,7 +29,7 @@ public class SharesControllerTest {
         // --
         // c.configuration().enable(new org.glassfish.jersey.media.json.JsonJaxbFeature());
 
-        target = c.target(Main.BASE_URI);
+        target = c.target(Main.BaseUri);
     }
 
     @After
@@ -37,12 +37,4 @@ public class SharesControllerTest {
         server.shutdownNow();
     }
 
-    /**
-     * Test to see that the message "Got it!" is sent in the response.
-     */
-    @Test
-    public void testGetIt() {
-        String responseMsg = target.path("myresource").request().get(String.class);
-        assertEquals("Got it!", responseMsg);
-    }
 }

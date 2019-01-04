@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="shares-broker-webservice" target="1.7" />
+      <module name="shares-broker-webservice" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
