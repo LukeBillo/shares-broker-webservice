@@ -1,14 +1,12 @@
 package org.lukebillington.university.sharesbroker.data;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.lukebillington.university.sharesbroker.data.models.User;
 import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
-import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelpers;
+import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelper;
 
 
 public class UsersRepository implements IUsersRepository {
@@ -36,7 +34,7 @@ public class UsersRepository implements IUsersRepository {
 
     @Override
     public void updateUser(User user) {
-        Document userDocument = ObjectMapperHelpers.MapToDocument(user);
+        Document userDocument = ObjectMapperHelper.MapToDocument(user);
 
         getUsersCollection().replaceOne(
                 Filters.eq("username", user.getUsername()),

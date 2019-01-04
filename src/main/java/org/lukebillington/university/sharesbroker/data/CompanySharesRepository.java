@@ -8,7 +8,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
-import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelpers;
+import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +84,7 @@ public class CompanySharesRepository implements ICompanySharesRepository {
 
     @Override
     public void updateShare(String companySymbol, CompanyShare companyShare) {
-        Document updatedShare = ObjectMapperHelpers.MapToDocument(companyShare);
+        Document updatedShare = ObjectMapperHelper.MapToDocument(companyShare);
 
         getSharesCollection().replaceOne(
                 Filters.eq("companySymbol", companySymbol),
@@ -108,7 +108,7 @@ public class CompanySharesRepository implements ICompanySharesRepository {
             return false;
         }
 
-        Document newShare = ObjectMapperHelpers.MapToDocument(companyShare);
+        Document newShare = ObjectMapperHelper.MapToDocument(companyShare);
         getSharesCollection().insertOne(newShare);
 
         return true;

@@ -7,6 +7,7 @@ import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.models.requests.CompanyShareUpdates;
 import org.lukebillington.university.sharesbroker.data.models.requests.CreateCompanyShareRequest;
 import org.lukebillington.university.sharesbroker.data.models.requests.UpdateCompanyShareRequest;
+import org.lukebillington.university.sharesbroker.security.AdminEndpoint;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
 import javax.inject.Inject;
@@ -24,9 +25,8 @@ import java.time.Instant;
 @Path(SharesAdminController.Path)
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
+@AdminEndpoint
 public class SharesAdminController {
-    // todo: implement user admin checking
-
     @Inject
     ICompanySharesRepository companySharesRepository;
 

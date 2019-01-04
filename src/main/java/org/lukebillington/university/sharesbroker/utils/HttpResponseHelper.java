@@ -18,4 +18,8 @@ public abstract class HttpResponseHelper {
     public static Response CreateUnauthorizedResponse(String message) {
         return Response.status(Response.Status.UNAUTHORIZED.getStatusCode(), message).build();
     }
+
+    public static Response CreateNotFoundResponse() {
+        return Response.status(Response.Status.NOT_FOUND.getStatusCode()).build();
+    }
 }

@@ -2,7 +2,6 @@ package org.lukebillington.university.sharesbroker.security;
 
 import org.glassfish.jersey.internal.util.Base64;
 import org.lukebillington.university.sharesbroker.data.IUsersRepository;
-import org.lukebillington.university.sharesbroker.data.models.User;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
 import javax.annotation.Priority;
@@ -60,7 +59,17 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             containerRequestContext.abortWith(HttpResponseHelper.CreateForbiddenResponse("Username or password did not match."));
         }
 
-        // beyond this point, user is authenticated.
+        // beyond this point, user is authenticated,
+        // just need to check if the endpoint is admin-only.
         Method methodBeingAccessed = resourceInfo.getResourceMethod();
+        Class classBeingAccessed = resourceInfo.getResourceClass();
+
+        boolean isAdminOnlyEndpoint =
+                methodBeingAccessed.isAnnotationPresent(AdminEndpoint.class) ||
+                classBeingAccessed.isAnnotationPresent(AdminEndpoint.class);
+
+        if (isAdminOnlyEndpoint && !usersRepository.getUser(username).isAdmin()) {
+            containerRequestContext.abortWith(HttpResponseHelper.CreateNotFoundResponse());
+        }
     }
 }
