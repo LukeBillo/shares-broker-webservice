@@ -7,6 +7,8 @@ import org.lukebillington.university.sharesbroker.data.models.requests.BuyShareR
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.models.User;
 import org.lukebillington.university.sharesbroker.data.models.UserShare;
+import org.lukebillington.university.sharesbroker.services.CurrencyConversion.CurrencyConversionWS;
+import org.lukebillington.university.sharesbroker.services.CurrencyConversion.CurrencyConversionWSService;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
 import javax.inject.Inject;
@@ -37,8 +39,14 @@ public class SharesController {
     }
 
     @GET
-    public Response getTop10Shares() {
+    public Response getShares(@QueryParam("currency") String currency) {
         List<CompanyShare> sharesToReturn = companySharesRepository.getShares();
+
+        for (CompanyShare share : sharesToReturn) {
+            if (!share.getSharePrice().getCurrency().equals(currency)) {
+            }
+        }
+
         return Response.ok(sharesToReturn).build();
     }
 
