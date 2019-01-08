@@ -7,8 +7,7 @@ import org.lukebillington.university.sharesbroker.data.models.requests.BuyShareR
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.models.User;
 import org.lukebillington.university.sharesbroker.data.models.UserShare;
-import org.lukebillington.university.sharesbroker.services.CurrencyConversion.CurrencyConversionWS;
-import org.lukebillington.university.sharesbroker.services.CurrencyConversion.CurrencyConversionWSService;
+import org.lukebillington.university.sharesbroker.services.CurrencyConversion.ICurrencyConversionWS;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
 import javax.inject.Inject;
@@ -16,6 +15,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+
+import static org.lukebillington.university.sharesbroker.utils.ListUtils.ContainsPartialString;
 
 /**
  * Shares controller - allows any user to get and buy
@@ -31,20 +32,45 @@ public class SharesController {
     @Inject
     IUsersRepository usersRepository;
 
+    @Inject
+    ICurrencyConversionWS currencyConversionWS;
+
     public static final String Path = "shares";
 
     private static class Errors {
         static final String SHARES_NOT_FOUND_OR_INSUFFICIENT = "The shares requested to buy were not found or had an insufficient number of shares available.";
         static final String USER_NOT_FOUND = "The user requesting to buy the shares was not found.";
+        static final String INVALID_CURRENCY = "The currency requested is not available.";
+    }
+
+    private CompanyShare ConvertCompanySharePrice(CompanyShare share, String requestedCurrency) {
+        String sharePriceCurrency = share.getSharePrice().getCurrency();
+
+        if (!requestedCurrency.isEmpty() && !sharePriceCurrency.equals(requestedCurrency)) {
+            double conversionRate = currencyConversionWS.getConversionRate(sharePriceCurrency, requestedCurrency);
+            double convertedSharePrice = share.getSharePrice().getValue() * conversionRate;
+            share.getSharePrice().setValue(convertedSharePrice);
+            share.getSharePrice().setCurrency(requestedCurrency);
+        }
+
+        return share;
     }
 
     @GET
     public Response getShares(@QueryParam("currency") String currency) {
         List<CompanyShare> sharesToReturn = companySharesRepository.getShares();
 
+        if (currency == null) {
+            return Response.ok(sharesToReturn).build();
+        }
+
+        boolean isRequestedCurrencyAvailable = ContainsPartialString(currencyConversionWS.getCurrencyCodes(), currency);
+
+        if (!isRequestedCurrencyAvailable)
+            return HttpResponseHelper.CreateBadRequestResponse(Errors.INVALID_CURRENCY);
+
         for (CompanyShare share : sharesToReturn) {
-            if (!share.getSharePrice().getCurrency().equals(currency)) {
-            }
+            ConvertCompanySharePrice(share, currency);
         }
 
         return Response.ok(sharesToReturn).build();

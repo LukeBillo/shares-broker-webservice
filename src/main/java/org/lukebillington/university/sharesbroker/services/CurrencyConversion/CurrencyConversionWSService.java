@@ -65,11 +65,11 @@ public class CurrencyConversionWSService
     /**
      * 
      * @return
-     *     returns CurrencyConversionWS
+     *     returns ICurrencyConversionWS
      */
     @WebEndpoint(name = "CurrencyConversionWSPort")
-    public CurrencyConversionWS getCurrencyConversionWSPort() {
-        return super.getPort(new QName("http://DOCwebServices/", "CurrencyConversionWSPort"), CurrencyConversionWS.class);
+    public ICurrencyConversionWS getCurrencyConversionWSPort() {
+        return super.getPort(new QName("http://DOCwebServices/", "CurrencyConversionWSPort"), ICurrencyConversionWS.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class CurrencyConversionWSService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns CurrencyConversionWS
+     *     returns ICurrencyConversionWS
      */
     @WebEndpoint(name = "CurrencyConversionWSPort")
-    public CurrencyConversionWS getCurrencyConversionWSPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://DOCwebServices/", "CurrencyConversionWSPort"), CurrencyConversionWS.class, features);
+    public ICurrencyConversionWS getCurrencyConversionWSPort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://DOCwebServices/", "CurrencyConversionWSPort"), ICurrencyConversionWS.class, features);
     }
 
     private static URL __getWsdlLocation() {

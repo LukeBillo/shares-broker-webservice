@@ -22,7 +22,7 @@ import javax.xml.ws.ResponseWrapper;
 @XmlSeeAlso({
     ObjectFactory.class
 })
-public interface CurrencyConversionWS {
+public interface ICurrencyConversionWS {
 
 
     /**
@@ -34,8 +34,8 @@ public interface CurrencyConversionWS {
      */
     @WebMethod(operationName = "GetConversionRate")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "GetConversionRate", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.GetConversionRate")
-    @ResponseWrapper(localName = "GetConversionRateResponse", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.GetConversionRateResponse")
+    @RequestWrapper(localName = "GetConversionRate", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.CurrencyConversion.GetConversionRate")
+    @ResponseWrapper(localName = "GetConversionRateResponse", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.CurrencyConversion.GetConversionRateResponse")
     @Action(input = "http://DOCwebServices/CurrencyConversionWS/GetConversionRateRequest", output = "http://DOCwebServices/CurrencyConversionWS/GetConversionRateResponse")
     public double getConversionRate(
         @WebParam(name = "arg0", targetNamespace = "")
@@ -50,8 +50,8 @@ public interface CurrencyConversionWS {
      */
     @WebMethod(operationName = "GetCurrencyCodes")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "GetCurrencyCodes", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.GetCurrencyCodes")
-    @ResponseWrapper(localName = "GetCurrencyCodesResponse", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.GetCurrencyCodesResponse")
+    @RequestWrapper(localName = "GetCurrencyCodes", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.CurrencyConversion.GetCurrencyCodes")
+    @ResponseWrapper(localName = "GetCurrencyCodesResponse", targetNamespace = "http://DOCwebServices/", className = "org.lukebillington.university.sharesbroker.services.CurrencyConversion.GetCurrencyCodesResponse")
     @Action(input = "http://DOCwebServices/CurrencyConversionWS/GetCurrencyCodesRequest", output = "http://DOCwebServices/CurrencyConversionWS/GetCurrencyCodesResponse")
     public List<String> getCurrencyCodes();
 
