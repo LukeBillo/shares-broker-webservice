@@ -1,7 +1,5 @@
 package org.lukebillington.university.sharesbroker.controllers;
 
-import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

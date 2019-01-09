@@ -45,15 +45,15 @@ public class CompanySharesRepository implements ICompanySharesRepository {
     }
 
     /**
-     * Takes no parameters.
-     * Default method for retrieving shares.
-     * Since this has no query, this will return the top 10 shares.
-     * @return List containing top 10 company shares with the most shares available.
+     * This is essentially the "default" method for getting shares
+     * when no criteria is given.
+     * @param limit - Max number of CompanyShares to return in List.
+     * @return Returns a list of the top n CompanyShares in share price.
      */
     @Override
-    public List<CompanyShare> getShares() {
+    public List<CompanyShare> getShares(int limit) {
         FindIterable<Document> top10Shares = getSharesCollection().find()
-                .sort(descending("numberOfShares"))
+                .sort(descending("sharePrice.value"))
                 .limit(10);
 
         return toCompanySharesArrayList(top10Shares);
