@@ -4,20 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/AppConfig.java" line="37" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6032ca63-d6ac-430e-bea9-512147a99bdb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/UserAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/controllers/UserAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/IUsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/IUsersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/UserShare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/OwnedShare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/builders/CompanyShareQueryBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/models/builders/CompanyShareQueryBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/security/AuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/security/AuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/ObjectMapperHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/utils/ObjectMapperHelper.java" afterDir="false" />
-    </list>
+    <list default="true" id="6032ca63-d6ac-430e-bea9-512147a99bdb" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +69,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
+            <state relative-caret-position="475">
               <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -303,9 +290,9 @@
     <property name="SearchEverywhereHistoryKey" value="userrepos&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java&#10;companyshare&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/data/models/CompanyShare.java&#10;companysha&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/data/CompanySharesRepository.java&#10;httpresp&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/utils/HttpResponseHelper.java&#10;sharesadmin&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/controllers/SharesAdminController.java&#10;companyshareupd&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/data/models/requests/CompanyShareUpdates.java&#10;mai&#9;FILE&#9;file://E:/dev/year3/SCCC/shares-broker-webservice/src/main/java/org/lukebillington/university/sharesbroker/Main.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548208130442" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548208256878" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CurrencyConvertorWS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -511,12 +498,12 @@
       <workItem from="1546967938388" duration="7452000" />
       <workItem from="1547048359567" duration="13138000" />
       <workItem from="1548086310831" duration="6455000" />
-      <workItem from="1548163838041" duration="17693000" />
+      <workItem from="1548163838041" duration="17790000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146727000" />
+    <option name="totallyTimeSpent" value="146824000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -531,7 +518,7 @@
     <frame x="-8" y="-8" width="2576" height="1456" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19197138" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19197138" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -540,8 +527,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49960256" weight="0.32879817" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4972178" weight="0.32577476" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4964229" visible="true" weight="0.39758125" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4972178" visible="true" weight="0.32577476" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4964229" weight="0.39758125" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49932885" weight="0.32879817" />
@@ -1046,7 +1033,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/lukebillington/university/sharesbroker/data/UsersRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
+        <state relative-caret-position="475">
           <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="imports" expanded="true" />
