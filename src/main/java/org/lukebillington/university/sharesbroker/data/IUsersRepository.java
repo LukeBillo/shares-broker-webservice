@@ -5,7 +5,8 @@ import org.lukebillington.university.sharesbroker.data.models.User;
 
 public interface IUsersRepository {
     User getUser(String username);
-    void updateUser(User user);
+    void replaceUser(User user);
+    void updateUserShares(User user);
     void setUserPasswordHash(String username, String newHashedPassword);
     String getUserPasswordHash(String username);
 }

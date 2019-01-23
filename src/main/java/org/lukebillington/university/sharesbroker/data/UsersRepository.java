@@ -3,6 +3,7 @@ package org.lukebillington.university.sharesbroker.data;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
+import org.bson.BsonArray;
 import org.bson.Document;
 import org.jvnet.hk2.annotations.Service;
 import org.lukebillington.university.sharesbroker.data.models.User;
@@ -37,12 +38,21 @@ public class UsersRepository implements IUsersRepository {
     }
 
     @Override
-    public void updateUser(User user) {
+    public void replaceUser(User user) {
         Document userDocument = ObjectMapperHelper.MapToDocument(user);
 
         getUsersCollection().replaceOne(
                 Filters.eq("username", user.getUsername()),
                 userDocument);
+    }
+
+    @Override
+    public void updateUserShares(User user) {
+        BsonArray userShares = ObjectMapperHelper.MapListToBson(user.getOwnedShares());
+
+        getUsersCollection().updateOne(
+                Filters.eq("username", user.getUsername()),
+                new Document("$set", new Document("ownedShares", userShares)));
     }
 
     @Override

@@ -52,11 +52,11 @@ public class CompanySharesRepository implements ICompanySharesRepository {
      */
     @Override
     public List<CompanyShare> getShares(int limit) {
-        FindIterable<Document> top10Shares = getSharesCollection().find()
+        FindIterable<Document> sharesWithLimit = getSharesCollection().find()
                 .sort(descending("sharePrice.value"))
-                .limit(10);
+                .limit(limit);
 
-        return toCompanySharesArrayList(top10Shares);
+        return toCompanySharesArrayList(sharesWithLimit);
     }
 
     /**

@@ -21,7 +21,7 @@ public class CompanyShareQueryBuilder {
             return this;
 
         _query = AppendToQuery(
-                Filters.eq("companyName", Pattern.compile(companyName))
+                Filters.eq("companyName", Pattern.compile(companyName, Pattern.CASE_INSENSITIVE))
         );
 
         return this;
@@ -32,7 +32,7 @@ public class CompanyShareQueryBuilder {
             return this;
 
         _query = AppendToQuery(
-                Filters.eq("companySymbol", Pattern.compile(companySymbol))
+                Filters.eq("companySymbol", Pattern.compile(companySymbol, Pattern.CASE_INSENSITIVE))
         );
 
         return this;

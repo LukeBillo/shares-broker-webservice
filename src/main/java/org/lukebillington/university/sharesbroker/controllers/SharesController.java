@@ -8,7 +8,7 @@ import org.lukebillington.university.sharesbroker.data.models.builders.CompanySh
 import org.lukebillington.university.sharesbroker.data.models.requests.BuyShareRequest;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
 import org.lukebillington.university.sharesbroker.data.models.User;
-import org.lukebillington.university.sharesbroker.data.models.UserShare;
+import org.lukebillington.university.sharesbroker.data.models.OwnedShare;
 import org.lukebillington.university.sharesbroker.services.CurrencyConversion.ICurrencyConversionWS;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
 
@@ -79,7 +79,7 @@ public class SharesController {
         // default limit is 50 so that the response size
         // is controlled.
         if (limit == null)
-            limit = 50;
+            limit = 10;
 
         List<CompanyShare> sharesToReturn = query == null ?
                 companySharesRepository.getShares(limit) :
@@ -104,7 +104,9 @@ public class SharesController {
                 companyShare.getSharePrice().getValue() > priceMoreThan)
         );
 
-        sharesToReturn = sharesToReturn.subList(0, limit);
+        if (sharesToReturn.size() > limit) {
+            sharesToReturn = sharesToReturn.subList(0, limit);
+        }
 
         return Response.ok(sharesToReturn).build();
     }
@@ -126,23 +128,23 @@ public class SharesController {
             return HttpResponseHelper.CreateBadRequestResponse(Errors.USER_NOT_FOUND);
         }
 
-        UserShare existingUserShare = buyingUser.getUserShareIfExists(buyingShare.getCompanySymbol());
+        OwnedShare existingOwnedShare = buyingUser.getUserShareIfExists(buyingShare.getCompanySymbol());
 
-        if (existingUserShare != null) {
-            int updatedNumberOfShares = existingUserShare.getNumberOfShares() + buyShareRequest.getNumberOfSharesToBuy();
-            existingUserShare.setNumberOfShares(updatedNumberOfShares);
+        if (existingOwnedShare != null) {
+            int updatedNumberOfShares = existingOwnedShare.getNumberOfShares() + buyShareRequest.getNumberOfSharesToBuy();
+            existingOwnedShare.setNumberOfShares(updatedNumberOfShares);
 
             return UpdateUserSharesAndOk(buyShareRequest, buyingShare, buyingUser);
         }
 
-        UserShare newUserShare = new UserShare(buyingShare, buyShareRequest.getNumberOfSharesToBuy());
-        buyingUser.getOwnedShares().add(newUserShare);
+        OwnedShare newOwnedShare = new OwnedShare(buyingShare, buyShareRequest.getNumberOfSharesToBuy());
+        buyingUser.getOwnedShares().add(newOwnedShare);
 
         return UpdateUserSharesAndOk(buyShareRequest, buyingShare, buyingUser);
     }
 
     private Response UpdateUserSharesAndOk(BuyShareRequest buyShareRequest, CompanyShare buyingShare, User buyingUser) {
-        usersRepository.updateUser(buyingUser);
+        usersRepository.updateUserShares(buyingUser);
         buyingShare.setNumberOfShares(buyingShare.getNumberOfShares() - buyShareRequest.getNumberOfSharesToBuy());
         companySharesRepository.updateShare(buyShareRequest.getCompanySymbol(), buyingShare);
 

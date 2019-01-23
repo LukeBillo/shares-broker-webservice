@@ -2,10 +2,7 @@ package org.lukebillington.university.sharesbroker;
 
 import org.glassfish.hk2.utilities.binding.AbstractBinder;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.lukebillington.university.sharesbroker.controllers.HealthController;
-import org.lukebillington.university.sharesbroker.controllers.SharesAdminController;
-import org.lukebillington.university.sharesbroker.controllers.SharesController;
-import org.lukebillington.university.sharesbroker.controllers.UserAdminController;
+import org.lukebillington.university.sharesbroker.controllers.*;
 import org.lukebillington.university.sharesbroker.data.CompanySharesRepository;
 import org.lukebillington.university.sharesbroker.data.ICompanySharesRepository;
 import org.lukebillington.university.sharesbroker.data.IUsersRepository;
@@ -30,6 +27,7 @@ public class AppConfig extends ResourceConfig {
         register(SharesAdminController.class);
         register(HealthController.class);
         register(UserAdminController.class);
+        register(UserSharesController.class);
 
         register(new AbstractBinder() {
             @Override
