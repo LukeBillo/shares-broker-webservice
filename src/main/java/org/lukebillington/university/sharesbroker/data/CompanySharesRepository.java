@@ -6,20 +6,52 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 import org.bson.Document;
 import org.bson.conversions.Bson;
+import org.jvnet.hk2.annotations.Service;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
-import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionManager;
+import org.lukebillington.university.sharesbroker.data.models.SharePrice;
+import org.lukebillington.university.sharesbroker.data.mongo.IMongoConnectionManager;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.IIEXTTradingService;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.models.Quote;
 import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelper;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.mongodb.client.model.Sorts.descending;
 
+@Service
 public class CompanySharesRepository implements ICompanySharesRepository {
     private MongoClient _mongoClient;
+    private static final int ThirtyMinutes = 30 * 60 * 1000;
 
-    public CompanySharesRepository() {
-        _mongoClient = MongoConnectionManager.Instance().getClient();
+    @Inject
+    public CompanySharesRepository(IMongoConnectionManager mongoConnectionManager, IIEXTTradingService exchangeTradingService) {
+        _mongoClient = mongoConnectionManager.getClient();
+
+        Timer timer = new Timer();
+        timer.schedule( new TimerTask() {
+            public void run() {
+                List<Quote> mostActiveShares = exchangeTradingService.getMostActive();
+
+                for (Quote quote: mostActiveShares) {
+                    CompanyShare share = getShare(Filters.eq("companySymbol", quote.getSymbol()));
+
+                    if (share != null) {
+                        share.setNumberOfShares(quote.getLatestVolume());
+                        share.setSharePrice(new SharePrice("USD", quote.getLatestPrice()));
+
+                        updateShare(share.getCompanySymbol(), share);
+                        continue;
+                    }
+
+                    CompanyShare newShare = new CompanyShare(quote);
+                    insertShare(newShare);
+                }
+            }
+        }, 0, ThirtyMinutes);
     }
 
     /**
@@ -41,18 +73,18 @@ public class CompanySharesRepository implements ICompanySharesRepository {
     }
 
     /**
-     * Takes no parameters.
-     * Default method for retrieving shares.
-     * Since this has no query, this will return the top 10 shares.
-     * @return List containing top 10 company shares with the most shares available.
+     * This is essentially the "default" method for getting shares
+     * when no criteria is given.
+     * @param limit - Max number of CompanyShares to return in List.
+     * @return Returns a list of the top n CompanyShares in share price.
      */
     @Override
-    public List<CompanyShare> getShares() {
-        FindIterable<Document> top10Shares = getSharesCollection().find()
-                .sort(descending("numberOfShares"))
-                .limit(10);
+    public List<CompanyShare> getShares(int limit) {
+        FindIterable<Document> sharesWithLimit = getSharesCollection().find()
+                .sort(descending("sharePrice.value"))
+                .limit(limit);
 
-        return toCompanySharesArrayList(top10Shares);
+        return toCompanySharesArrayList(sharesWithLimit);
     }
 
     /**

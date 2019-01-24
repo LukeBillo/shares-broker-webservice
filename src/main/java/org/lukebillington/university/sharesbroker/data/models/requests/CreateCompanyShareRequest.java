@@ -3,7 +3,7 @@ package org.lukebillington.university.sharesbroker.data.models.requests;
 public class CreateCompanyShareRequest {
     private String _companyName;
     private String _companySymbol;
-    private int _numberOfAvailableShares;
+    private long _numberOfAvailableShares;
     private String _currency;
     private double _price;
 
@@ -23,7 +23,7 @@ public class CreateCompanyShareRequest {
         this._companySymbol = _companySymbol;
     }
 
-    public int getNumberOfAvailableShares() {
+    public long getNumberOfAvailableShares() {
         return _numberOfAvailableShares;
     }
 
