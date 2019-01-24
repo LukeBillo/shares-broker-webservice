@@ -99,10 +99,13 @@ public class SharesController {
 
         // this is separated from the rest of the query so that
         // it happens after currency conversion.
-        sharesToReturn.removeIf(
-                companyShare -> !(companyShare.getSharePrice().getValue() < priceLessThan &&
-                companyShare.getSharePrice().getValue() > priceMoreThan)
-        );
+        if (priceLessThan != null) {
+            sharesToReturn.removeIf(companyShare -> !(companyShare.getSharePrice().getValue() < priceLessThan));
+        }
+
+        if(priceMoreThan != null) {
+            sharesToReturn.removeIf(companyShare -> !(companyShare.getSharePrice().getValue() > priceMoreThan));
+        }
 
         if (sharesToReturn.size() > limit) {
             sharesToReturn = sharesToReturn.subList(0, limit);

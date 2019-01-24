@@ -1,11 +1,8 @@
 package org.lukebillington.university.sharesbroker.security;
 
 import org.glassfish.jersey.internal.util.Base64;
-import org.glassfish.jersey.message.internal.ReaderWriter;
-import org.glassfish.jersey.server.ContainerException;
 import org.lukebillington.university.sharesbroker.data.IUsersRepository;
 import org.lukebillington.university.sharesbroker.utils.HttpResponseHelper;
-import sun.misc.IOUtils;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;
@@ -16,10 +13,7 @@ import javax.ws.rs.container.ResourceInfo;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.ext.Provider;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringWriter;
 import java.lang.reflect.Method;
 
 @Provider

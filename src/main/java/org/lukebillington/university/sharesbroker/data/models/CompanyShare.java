@@ -2,11 +2,12 @@ package org.lukebillington.university.sharesbroker.data.models;
 
 import org.bson.Document;
 import org.lukebillington.university.sharesbroker.data.models.requests.CreateCompanyShareRequest;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.models.Quote;
 
 public class CompanyShare {
     private String _companyName;
     private String _companySymbol;
-    private int _numberOfShares;
+    private long _numberOfShares;
     private SharePrice _sharePrice;
 
     public CompanyShare(Document companyShare) {
@@ -25,6 +26,13 @@ public class CompanyShare {
         _sharePrice = new SharePrice(newCompanyShareRequest.getCurrency(), newCompanyShareRequest.getPrice());
     }
 
+    public CompanyShare(Quote quote) {
+        _companyName = quote.getCompanyName();
+        _companySymbol = quote.getSymbol();
+        _numberOfShares = quote.getLatestVolume();
+        _sharePrice = new SharePrice("USD", quote.getLatestPrice());
+    }
+
     public String getCompanyName() {
         return _companyName;
     }
@@ -41,11 +49,11 @@ public class CompanyShare {
         this._companySymbol = _companySymbol;
     }
 
-    public int getNumberOfShares() {
+    public long getNumberOfShares() {
         return _numberOfShares;
     }
 
-    public void setNumberOfShares(int _numberOfShares) {
+    public void setNumberOfShares(long _numberOfShares) {
         this._numberOfShares = _numberOfShares;
     }
 

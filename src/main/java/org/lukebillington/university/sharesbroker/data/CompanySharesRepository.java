@@ -8,22 +8,50 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.jvnet.hk2.annotations.Service;
 import org.lukebillington.university.sharesbroker.data.models.CompanyShare;
+import org.lukebillington.university.sharesbroker.data.models.SharePrice;
 import org.lukebillington.university.sharesbroker.data.mongo.IMongoConnectionManager;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.IIEXTTradingService;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.models.Quote;
 import org.lukebillington.university.sharesbroker.utils.ObjectMapperHelper;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.mongodb.client.model.Sorts.descending;
 
 @Service
 public class CompanySharesRepository implements ICompanySharesRepository {
     private MongoClient _mongoClient;
+    private static final int ThirtyMinutes = 30 * 60 * 1000;
 
     @Inject
-    public CompanySharesRepository(IMongoConnectionManager mongoConnectionManager) {
+    public CompanySharesRepository(IMongoConnectionManager mongoConnectionManager, IIEXTTradingService exchangeTradingService) {
         _mongoClient = mongoConnectionManager.getClient();
+
+        Timer timer = new Timer();
+        timer.schedule( new TimerTask() {
+            public void run() {
+                List<Quote> mostActiveShares = exchangeTradingService.getMostActive();
+
+                for (Quote quote: mostActiveShares) {
+                    CompanyShare share = getShare(Filters.eq("companySymbol", quote.getSymbol()));
+
+                    if (share != null) {
+                        share.setNumberOfShares(quote.getLatestVolume());
+                        share.setSharePrice(new SharePrice("USD", quote.getLatestPrice()));
+
+                        updateShare(share.getCompanySymbol(), share);
+                        continue;
+                    }
+
+                    CompanyShare newShare = new CompanyShare(quote);
+                    insertShare(newShare);
+                }
+            }
+        }, 0, ThirtyMinutes);
     }
 
     /**

@@ -12,6 +12,8 @@ import org.lukebillington.university.sharesbroker.data.mongo.MongoConnectionMana
 import org.lukebillington.university.sharesbroker.security.AuthenticationFilter;
 import org.lukebillington.university.sharesbroker.services.CurrencyConversion.CurrencyConversionWSService;
 import org.lukebillington.university.sharesbroker.services.CurrencyConversion.ICurrencyConversionWS;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.IEXTTradingService;
+import org.lukebillington.university.sharesbroker.services.IEXTrading.IIEXTTradingService;
 
 import javax.inject.Singleton;
 import javax.ws.rs.ApplicationPath;
@@ -35,6 +37,7 @@ public class AppConfig extends ResourceConfig {
                 bind(CompanySharesRepository.class).to(ICompanySharesRepository.class).in(Singleton.class);
                 bind(UsersRepository.class).to(IUsersRepository.class).in(Singleton.class);
                 bind(MongoConnectionManager.class).to(IMongoConnectionManager.class).in(Singleton.class);
+                bind(IEXTTradingService.class).to(IIEXTTradingService.class).in(Singleton.class);
                 bind(new CurrencyConversionWSService().getCurrencyConversionWSPort()).to(ICurrencyConversionWS.class);
             }
         });
